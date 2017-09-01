@@ -1,0 +1,18 @@
+nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+  button.navbar-toggler.hidden-md-up.pull-xs-right(type='button', data-toggle='collapse', data-target='#navbar') &#x2630;
+  #navbar.navbar-nav.collapse.navbar-toggleable-sm
+    .container
+      a.navbar-brand(href='/')
+        i.icn-logo.material-icons bookmark_border
+        | Board
+      .nav-items.clearfix
+        if !currenctUser 
+         a.nav-item.nav-link(href='register') Sign Up
+        a.nav-item.nav-link(href='/newpost') Post a Job
+        a.nav-item.nav-link(href='/') Available jobs
+        if currenctUser 
+         a.nav-item.nav-link(href='/myposts') my posted jobs
+      if !currenctUser 
+       a.btn.btn-info.pull-md-right(href='/login') Login
+      else
+       a.btn.btn-info.pull-md-right(href='/logout') Logout

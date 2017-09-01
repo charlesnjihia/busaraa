@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h2.display-4.m-b-2
+
+        div#outcont
+          h3= `Title: ${post.title}`
+          h4 Description
+          p=post.description
+          h4 Roles and Responsibilities:
+          ul
+          each role in post.roles
+            li= `${role}`
+              
+          h3 Requirements:
+          ul
+          each requirement in post.requirements          
+            li= `${requirement}`
+          if (userId===post.owner)
+            a(href=`/posts/${post._id}/applications`) View Applications
+          else
+            a(href='/newapplicant') Apply for this job 
+          

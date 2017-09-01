@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Apply for Job
+
+        // applicant form
+        form(method='POST' action='/newapplication')
+          div.form-group
+            label(for='name') Name:
+            input#title.form-control(type='text', placeholder='name' name='name')      
+          div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='text', placeholder='email address' name='email')
+          div.form-group
+            label(for='name') Phone:
+            input#phone.form-control(type='text', placeholder='phone number' name='phone')              
+          div.form-group
+            label(for='email') Cover Letter:
+            textarea#email.form-control( placeholder='summary letter' name='letter')
+          div#education
+            div.educontainer
+              div.form-group
+                label(for='pw') Education:
+                input#pw.form-control(type='text' name='school' placeholder='school')
+                input#pw.form-control(type='text' name='field' placeholder='field of study')
+                input#pw.form-control(type='text' name='grade' placeholder='grade')
+                div.row
+                  div.form-group.col-xs-6
+                    label(for='from') From:
+                    select.monthfrom.form-control( name='ed_from_month' placeholder='month')
+                      each month in months
+                        option(value=month) #{month}                     
+                    select.yearfrom.form-control(type='text' name='ed_from_year' placeholder='year')
+                      each year in years
+                        option(value=year selected='selected') #{year}                      
+                  div.form-group.col-xs-6
+                    label(for='from') To:
+                    select.monthto.form-control(type='text' name='ed_to_month' placeholder='month')
+                      each month in months
+                        option(value=month) #{month}   
+                    select.yearto.form-control(type='text' name='ed_to_year' placeholder='year')
+                      each year in years
+                        option(value=year selected='selected') #{year} 
+          a#addedbut(href="") Add Education
+          div#experience   
+            div.form-group
+              label(for='pw2') Experience:
+              input#pw2.form-control(type='text' name='company' placeholder='company')
+              input#pw2.form-control(type='text' name='industry' placeholder='industry')
+              input#pw2.form-control(type='text' name='title' placeholder='title')
+              div.row
+                div.form-group.col-xs-6
+                  label(for='from') From:
+                  select.monthfrom.form-control(type='text' name='exp_from_month' placeholder='month')
+                    each month in months
+                        option(value=month) #{month}
+                  select.yearfrom.form-control(type='text' name='exp_from_year' placeholder='year')
+                    each year in years
+                        option(value=year selected='selected') #{year} 
+                div.form-group.col-xs-6
+                  label(for='from') To:
+                  select.monthto.form-control(type='text' name='exp_to_month' placeholder='month')
+                    each month in months
+                        option(value=month) #{month}
+                  select.yearto.form-control(type='text' name='exp_to_year' placeholder='year')
+                    each year in years
+                        option(value=year selected='selected') #{year} 
+          a#addexpbut(href="") Add Experience 
+          br  
+          button.btn.btn-primary(type='submit') Submit Application
+    script(
+         src="https://code.jquery.com/jquery-3.2.1.min.js"
+         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+         crossorigin="anonymous")
+    script(src='/js/newapplication.js')      

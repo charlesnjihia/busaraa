@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h1.display-4.m-b-2 Post a Job
+        h3#response
+        // post form
+        form(method='POST' action='/newpost')
+          div.form-group
+            label(for='name') Title:
+            input#title.form-control(type='text', placeholder='job title' name='title')
+          div.form-group
+            label(for='email') Description:
+            textarea#description.form-control( placeholder='description' name='desc')
+          div#roles
+            div.form-group
+              label(for='pw') Roles and Responsibilities:
+              input#pw.form-control(type='text' name='role')
+          a#addrolesbut(href="") Add Role
+          div#requirements    
+            div.form-group
+              label(for='pw2') Requirements:
+              input#pw2.form-control(type='text' name='requirement')
+          a#addreqbut(href="") Add Requirement 
+          br  
+          button.btn.btn-primary(type='submit') Post Job
+    script(
+         src="https://code.jquery.com/jquery-3.2.1.min.js"
+         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+         crossorigin="anonymous")
+    script(src='/js/newpost.js')      
