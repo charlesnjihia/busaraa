@@ -217,7 +217,7 @@ router.get('/posts/:id/applications', function(req, res, next) {
               if (err) {
                 return next(err);
               } else {
-                console.log(applications) ;
+                
 				return res.render('applications', { title: 'Applications',apps:applications });  
 			  }
 	});   
